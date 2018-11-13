@@ -1,3 +1,16 @@
-<p>
-  home works!
-</p>
+<div class="card-columns">
+
+<div *ngFor="let cancion of canciones" class="card">
+  <img class="card-img-top" [src]="cancion.images[0].url" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ cancion.name }}</h5>
+    
+    <p class="card-text"><small class="text-muted">{{cancion.release_date | date}}</small></p>
+
+    <span *ngFor="let artista of cancion.artists" class="badge badge-pill badge-secondary">{{artista.name}}</span>
+
+    <!--p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p-->
+  </div>
+</div>
+
+</div>

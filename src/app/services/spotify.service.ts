@@ -6,7 +6,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SpotifyService {
 
-  private token:string;
+  private token:any = {
+    'Authorization':'Bearer BQAZJeGz3HQ9sGXnGfTYxJi81DVkOd2uHAwow_2sr5wEGaDtPk6NX8pSIm5ftxV3cl89tXVDc539cNyGu1Y'
+  };
   private spotheader:HttpHeaders;
 
   constructor(private http:HttpClient) {
@@ -18,16 +20,16 @@ export class SpotifyService {
    }
 
   getSpotifyReleases(){
-    const headers = new HttpHeaders({
-      'Authorization':'Bearer BQDXfVr5f5jl9tj7MCNHLDp5v88EgOG9Vt0MPw94xtLy6LIkDihijMSXzC-dqPIWvVERBiB9_4YO2UM44K0'
-    })
-
+    const headers = new HttpHeaders(this.token)
     return this.http.get('https://api.spotify.com/v1/browse/new-releases',{ headers });
   }
 
   getArtist(termino:String){
     //Petición get para obtener la info
-    //https://api.spotify.com/v1/search?q=yilmar&type=artist&limit=15
+    //https://api.spotify.com/v1/search?q=`${ termino }`&type=artist&limit=15
+    const headers = new HttpHeaders(this.token)
+    return this.http.get(`https://api.spotify.com/v1/search?q=${ termino }&type=artist&limit=15`,{ headers });
+    
   }
 
 }

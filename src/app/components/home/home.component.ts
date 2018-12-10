@@ -20,4 +20,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  buscar(){
+    //Nada por ahora
+  }
+
 }

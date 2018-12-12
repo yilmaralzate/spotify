@@ -9,7 +9,8 @@ import { PaisesComponent } from './components/paises/paises.component';
 
 export const ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
-    { path: 'artist', component: ArtistComponent },
+    //{ path: 'artist', component: ArtistComponent },
+    { path: 'artist/:id', component: ArtistComponent },
     { path: 'search', component: SearchComponent },
     { path: 'paises', component: PaisesComponent },
     //{ path: '', component: HomeComponent },
